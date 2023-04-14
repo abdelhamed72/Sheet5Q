@@ -1,0 +1,79 @@
+package com.mycompany.accountasg;
+
+import java.util.Date;
+
+
+public class Account {
+    private int id ;
+    private double balance ;
+    private double annualIntersetRate;
+    private double monthlyIntersetRate;
+    private java.util.Date dateCreated;
+    private double monthlyInterset;
+    
+    Account(){
+        id=0;
+        balance=0;
+        annualIntersetRate=0;
+        dateCreated = new Date();
+    }
+    
+    Account(int id , double balance){
+        this.id = id;
+        this.balance =balance;
+        dateCreated = new Date();
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    public double getBalance() {
+        return balance;
+    }
+    
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    public double getAnnualIntersetRate() {
+        return annualIntersetRate;
+    }
+
+    public void setAnnualIntersetRate(double annualIntersetRate) {
+        this.annualIntersetRate = annualIntersetRate;
+    }
+
+    public Date getDateCreated() {
+        return dateCreated;
+    }
+        
+    public double getMonthlyInterestRate(){
+        monthlyIntersetRate = annualIntersetRate/12;
+        return monthlyIntersetRate;
+    }
+    
+    public double getMonthlyInterest(){
+        return monthlyInterset;
+    }
+    
+    public void withdraw(double withdraw){
+        if(withdraw<=balance){
+         balance-=withdraw;
+            System.out.println("Successful and your Balance : "+balance);
+        }else{
+            System.out.println("Sorry your Balance is not available");
+        }   
+    }
+    public void deposit (int deposit){
+        this.balance+=deposit;
+        System.out.println("Your Balance is : "+ balance);
+    }
+    
+   
+    
+}
